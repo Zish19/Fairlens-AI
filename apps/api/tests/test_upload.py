@@ -3,19 +3,25 @@ import uuid
 import pytest
 from fastapi.testclient import TestClient
 from apps.api.main import app
-from apps.api.core.db import engine, get_db
+from apps.api.core.db import engine, SessionLocal
 from apps.api.models.base import Base
 from apps.api.models import User, Dataset, DatasetVersion, Analysis, RefreshToken, MetricResult, UploadJob
-
-@pytest.fixture(autouse=True)
-def setup_db():
-    Base.metadata.create_all(bind=engine)
-    yield
-    Base.metadata.drop_all(bind=engine)
 
 from apps.api.core.security import get_current_user
 
 mock_user = User(id=uuid.uuid4(), email="test@example.com")
+
+@pytest.fixture(autouse=True)
+def setup_db():
+    Base.metadata.create_all(bind=engine)
+    db = SessionLocal()
+    try:
+        db.add(User(id=mock_user.id, email=mock_user.email, hashed_password="pwd"))
+        db.commit()
+    finally:
+        db.close()
+    yield
+    Base.metadata.drop_all(bind=engine)
 
 @pytest.fixture(autouse=True)
 def setup_auth():
