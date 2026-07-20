@@ -18,3 +18,4 @@ redis
 structlog
 asgi-correlation-id
 prometheus-fastapi-instrumentator
+psycopg2-binary>=2.9.9
