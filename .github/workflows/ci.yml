@@ -91,6 +91,7 @@ jobs:
           DATABASE_URL: postgresql://fairlens:password@localhost:5432/fairlens
           REDIS_URL: redis://localhost:6379/0
           AI_PROVIDER: stub
+          PYTHONPATH: .
         run: pytest apps/api/
 
   docker-smoke-test:
