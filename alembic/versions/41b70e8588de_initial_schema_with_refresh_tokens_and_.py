@@ -102,7 +102,7 @@ def upgrade() -> None:
     op.create_index(op.f('ix_analyses_owner_id'), 'analyses', ['owner_id'], unique=False)
     op.create_table('upload_jobs',
     sa.Column('dataset_version_id', sa.UUID(), nullable=False),
-    sa.Column('status', sa.Enum('UPLOADED', 'VALIDATING', 'VALIDATED', 'QUEUED', 'PROFILE_RUNNING', 'PROFILE_COMPLETE', 'FAILED', 'CANCELLED', name='jobstatus'), nullable=False),
+    sa.Column('status', sa.String(), nullable=False),
     sa.Column('progress', sa.Integer(), nullable=False),
     sa.Column('error_message', sa.String(), nullable=True),
     sa.Column('started_at', sa.DateTime(timezone=True), nullable=True),
