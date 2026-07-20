@@ -69,12 +69,18 @@ jobs:
       - name: Run Alembic Migrations
         env:
           DATABASE_URL: postgresql://fairlens:password@localhost:5432/fairlens
+          SECRET_KEY: test-secret-key-at-least-32-chars-long
+          REDIS_URL: redis://localhost:6379/0
+          AI_PROVIDER: stub
         run: |
           alembic upgrade head
           
       - name: Check Alembic Migration Status
         env:
           DATABASE_URL: postgresql://fairlens:password@localhost:5432/fairlens
+          SECRET_KEY: test-secret-key-at-least-32-chars-long
+          REDIS_URL: redis://localhost:6379/0
+          AI_PROVIDER: stub
         run: |
           alembic check
 
