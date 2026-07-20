@@ -1,5 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { MetricResultResponse } from '../../services/analysisApi';
+import type { MetricResultResponse } from '../../services/analysisApi';
 
 export function GroupComparisonChart({ metrics }: { metrics: MetricResultResponse[] }) {
     // Extract SelectionRate for subgroups

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { analysisApi, AnalysisConfig } from '../services/analysisApi';
+import { analysisApi } from '../services/analysisApi';
+import type { AnalysisConfig } from '../services/analysisApi';
 
 export function RunAnalysis() {
     const { datasetId, versionId } = useParams();

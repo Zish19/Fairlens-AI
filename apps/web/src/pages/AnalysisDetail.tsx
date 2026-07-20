@@ -58,6 +58,11 @@ export function AnalysisDetail() {
                             Started: {new Date(startedAt).toLocaleString()}
                         </p>
                     )}
+                    {completedAt && (
+                        <p className="text-xs text-slate-500 mt-1">
+                            Completed: {new Date(completedAt).toLocaleString()}
+                        </p>
+                    )}
                 </div>
             </section>
 

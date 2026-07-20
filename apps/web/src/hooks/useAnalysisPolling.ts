@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { analysisApi, AnalysisResponse } from '../services/analysisApi';
+import { analysisApi } from '../services/analysisApi';
+import type { AnalysisResponse } from '../services/analysisApi';
 
 export interface PollingState {
     status: string;

@@ -1,4 +1,4 @@
-import { MetricResultResponse } from '../../services/analysisApi';
+import type { MetricResultResponse } from '../../services/analysisApi';
 
 export function MetricCard({ metric }: { metric: MetricResultResponse }) {
     // Basic interpretation of values

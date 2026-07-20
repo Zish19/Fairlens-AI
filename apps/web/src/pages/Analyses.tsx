@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { analysisApi, AnalysisResponse } from '../services/analysisApi';
+import { analysisApi } from '../services/analysisApi';
+import type { AnalysisResponse } from '../services/analysisApi';
 
 export function Analyses() {
     const [analyses, setAnalyses] = useState<AnalysisResponse[]>([]);
